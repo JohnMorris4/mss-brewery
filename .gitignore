@@ -125,7 +125,7 @@ Desktop.ini
 *~
 .merge_file*
 Libraries
-libraries
+.idea/libraries
 ######################
 # Gradle Wrapper
 ######################
@@ -140,3 +140,4 @@ libraries
 # ESLint
 ######################
 .eslintcache
+/.idea/libraries/

@@ -12,11 +12,17 @@ public class BeerServiceImpl implements BeerService {
         return BeerDto.builder().id(UUID.randomUUID())
                 .beerName("Galaxy Cat")
                 .beerStyle("Pale Ale")
+                .upc(125632452342342223L)
                 .build();
     }
 
     @Override
     public BeerDto saveNewBeer(BeerDto beerDto) {
         return BeerDto.builder().id(UUID.randomUUID()).build();
+    }
+
+    @Override
+    public void updateBeer(UUID beerId, BeerDto beerDto) {
+        //todo impl to update a beer
     }
 }
