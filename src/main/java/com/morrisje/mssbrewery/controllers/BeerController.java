@@ -3,6 +3,7 @@ package com.morrisje.mssbrewery.controllers;
 
 import com.morrisje.mssbrewery.services.BeerService;
 import com.morrisje.mssbrewery.web_models.BeerDto;
+import com.morrisje.mssbrewery.web_models.v2.BeerDtoV2;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
+@Deprecated
 @RequestMapping("/api/v1/beer")
 @RestController
 public class BeerController {
