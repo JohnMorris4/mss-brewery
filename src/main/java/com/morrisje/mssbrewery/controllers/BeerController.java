@@ -3,12 +3,10 @@ package com.morrisje.mssbrewery.controllers;
 
 import com.morrisje.mssbrewery.services.BeerService;
 import com.morrisje.mssbrewery.web_models.BeerDto;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -25,5 +23,14 @@ public class BeerController {
     @GetMapping({"/{beerId}"})
     public ResponseEntity<BeerDto> getBeer(@PathVariable("beerId") UUID beerId){
         return new ResponseEntity<>(beerService.getBeerById(beerId), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public  ResponseEntity postBear(BeerDto beerDto){
+        BeerDto saveDto = beerService.saveNewBeer(beerDto);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Location", "/api/v1/beer/" + saveDto.getId().toString());
+        return new ResponseEntity(headers, HttpStatus.CREATED);
     }
 }
